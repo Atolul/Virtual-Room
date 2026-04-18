@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" type="text/css" href="css/music_player.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="music-player">
+        <img id="cover" src="images/music_cover/odoriko_cover.jpg"/>
+        <div id="name">Name</div>
+        <div id="artist">Artist</div>
+
+        <input id="music-slider" type="range">
+
+        <div id="music-buttons">
+            <i id="shuffle-music" class="fa-solid fa-shuffle"></i>
+            <i id="prev-music" class="fa-solid fa-backward-step fa-2x"></i>
+            <i id="playpause-music" class="fa-solid fa-circle-play fa-3x"></i>
+            <i id="next-music" class="fa-solid fa-forward-step fa-2x"></i>
+            <i id="repeat-music" class="fa-solid fa-repeat"></i>
+
+        </div>
+
+    </div>
+
+    <script src="/JS/music_player.js"></script>
+    
+</body>
+</html>
