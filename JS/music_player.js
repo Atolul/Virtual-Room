@@ -63,9 +63,14 @@ nextMusicButton.addEventListener("click", function(){
 playPauseButton.addEventListener("click", function() {
     if (!audio.paused) {
         audio.pause();
+        playPauseButton.classList.remove("fa-circle-pause");
+        playPauseButton.classList.add("fa-circle-play");
+        
     }
     else{
         audio.play();
+        playPauseButton.classList.remove("fa-circle-play");
+        playPauseButton.classList.add("fa-circle-pause");
     }
    
 });
