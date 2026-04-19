@@ -26,7 +26,7 @@ const music = [
     },
     {
         image: "images/music_cover/mang_chủng.jpg",
-        name: "<<芒种>>音阙诗听-赵方婧 官方高画质.mp3",
+        name: "芒种",
         artist: "音阙诗听, 赵方婧",
         audio: "music/芒种音阙诗听-赵方婧 官方高画质.mp3"
     },
@@ -44,17 +44,39 @@ let currentMusicIndex = 0;
 let shuffleOn = false;
 updateMusic();
 
+
+const next = 1;
+const prev = -1;
+
+/**
+ * Shuffles array in place.
+ * @param {Array} a items An array containing the items.
+ */
+
+// shuffle helper function
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+        
+}
+
 prevMusicButton.addEventListener("click", function() {
-    if(currentMusicIndex == 0){ 
-        return;
+    if (shuffleOn){
+        currentMusicIndex = shuffle(a);
     }
     currentMusicIndex--;
     updateMusic();
 });
 
 nextMusicButton.addEventListener("click", function(){
-    if(currentMusicIndex == music.length - 1) {
-        return;
+    if (shuffleOn){
+    currentMusicIndex = shuffle(a);
     }
     currentMusicIndex++;
     updateMusic();
@@ -77,7 +99,7 @@ playPauseButton.addEventListener("click", function() {
 
 audio.addEventListener("ended", function() {
     if(shuffleOn) {
-        currentMusicIndex = Math.floor(Math.random() * music.length);   
+        currentMusicIndex = shuffle(a);   
     }else {
         currentMusicIndex = (currentMusicIndex + 1) % music.length;
     }
