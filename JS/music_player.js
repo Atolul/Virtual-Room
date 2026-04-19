@@ -16,7 +16,7 @@ const music = [
         image: "images/music_cover/nanairo_symphony.jpg",
         name: "Nanairo Symphony",
         artist: "Coalamode",
-        audio: "/music/COALAMODE. - Nanairo Symphony.mp3"
+        audio: "music/COALAMODE. - Nanairo Symphony.mp3"
     },
     {
         image: "images/music_cover/odoriko_cover.jpg",
