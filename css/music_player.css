@@ -47,3 +47,14 @@ body{
     height: 15px;
     border-radius: 40%;
 }
+
+#repeat-music.active {
+    color: rgb(90, 216, 123);
+    font-size: large;
+
+}
+
+#shuffle-music.active {
+    color: rgb(90, 216, 123);
+    font-size: large;
+}

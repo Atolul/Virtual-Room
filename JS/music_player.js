@@ -41,6 +41,7 @@ const music = [
 
 const audio = document.createElement("audio");
 let currentMusicIndex = 0;
+let shuffleOn = false;
 updateMusic();
 
 prevMusicButton.addEventListener("click", function() {
@@ -70,9 +71,34 @@ playPauseButton.addEventListener("click", function() {
 });
 
 audio.addEventListener("ended", function() {
+    if(shuffleOn) {
+        currentMusicIndex = Math.floor(Math.random() * music.length);   
+    }else {
+        currentMusicIndex = (currentMusicIndex + 1) % music.length;
+    }
     nextMusicButton.click();
 });
 
+musicRepeat.addEventListener("click", function() {
+    audio.loop = !audio.loop;
+    musicRepeat.classList.toggle("active");
+
+    // turn off musicShuffle
+    shuffleOn = false;
+    musicShuffle.classList.remove("active");
+
+});
+
+musicShuffle.addEventListener("click", function() {
+    shuffleOn = !shuffleOn;
+    musicShuffle.classList.toggle("active");
+
+    // turn off musicRepeat
+    audio.loop = false;
+    musicRepeat.classList.remove("active");
+
+
+})
 
 window.addEventListener("load", function() {
     audio.pause();
