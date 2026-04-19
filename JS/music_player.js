@@ -8,6 +8,9 @@ const playPauseButton = document.getElementById("playpause-music");
 const prevMusicButton = document.getElementById("prev-music");
 const nextMusicButton = document.getElementById("next-music");
 
+const musicShuffle = document.getElementById("shuffle-music");
+const musicRepeat = document.getElementById("repeat-music");
+
 const music = [
     {
         image: "images/music_cover/nanairo_symphony.jpg",
@@ -66,6 +69,16 @@ playPauseButton.addEventListener("click", function() {
    
 });
 
+audio.addEventListener("ended", function() {
+    nextMusicButton.click();
+});
+
+
+window.addEventListener("load", function() {
+    audio.pause();
+    audio.currentTime = 0;
+})
+
 function updateMusic() {
     const music_ = music[currentMusicIndex];
     musicImage.src = music_.image;
@@ -74,5 +87,22 @@ function updateMusic() {
 
     audio.src = music_.audio;
     audio.play();
-  };
+
+    audio.onloadeddata = function(){
+        musicSlider.value = 0;
+        musicSlider.max = audio.duration;
+    }
+}
+
+musicSlider.addEventListener("change", function() {
+    audio.currentTime = musicSlider.value;
+});
+
+  function moveSlider() {
+    musicSlider.value = audio.currentTime;
+};
+
+  setInterval(moveSlider, 1000);
+
+
 
